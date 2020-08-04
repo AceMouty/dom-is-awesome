@@ -40,3 +40,73 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// ===========================
+// Navigation bar
+// ===========================
+const navItems = document.querySelectorAll('.container header nav a')
+
+navItems.forEach((item, i) => {
+  item.textContent = siteContent["nav"][`nav-item-${i + 1}`];
+})
+
+
+// ===========================
+// CTA
+// ===========================
+
+// CTA-Text
+const ctaHeader = document.querySelector(".cta-text h1");
+ctaHeader.textContent = siteContent["cta"]["h1"];
+
+// CTA-Button
+ const ctaButton = document.querySelector(".cta-text button");
+ ctaButton.textContent = siteContent["cta"]["button"];
+
+ // CTA-Image
+ const ctaImage = document.getElementById("cta-img");
+ ctaImage.src = siteContent["cta"]["img-src"];
+
+// ===========================
+// Main Content
+// ===========================
+
+// Top Conent
+const textContentElms = document.querySelectorAll(".text-content");
+const [features, about, services, product, vision] = textContentElms;
+
+// Features
+features.children[0].textContent = siteContent["main-content"]["features-h4"];
+features.children[1].textContent = siteContent["main-content"]["features-content"];
+
+// About
+about.children[0].textContent = siteContent["main-content"]["about-h4"];
+about.children[1].textContent = siteContent["main-content"]["about-content"];
+
+// Main Content Image
+const middleImg = document.getElementById("middle-img");
+middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+// Services
+services.children[0].textContent = siteContent["main-content"]["services-h4"];
+services.children[1].textContent = siteContent["main-content"]["services-content"];
+
+// Product
+product.children[0].textContent = siteContent["main-content"]["product-h4"];
+product.children[1].textContent = siteContent["main-content"]["product-content"];
+
+// Vision
+vision.children[0].textContent = siteContent["main-content"]["vision-h4"];
+vision.children[1].textContent = siteContent["main-content"]["vision-content"];
+
+// ===========================
+// Contact Section
+// ===========================
+
+const contactSection = document.querySelector(".contact");
+const [contact, address, phone, email] = contactSection.children;
+
+contact.textContent = siteContent["contact"]["contact-h4"]
+address.textContent = siteContent["contact"]["address"]
+phone.textContent = siteContent["contact"]["phone"]
+email.textContent = siteContent["contact"]["email"]
