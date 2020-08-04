@@ -57,7 +57,20 @@ navItems.forEach((item, i) => {
 
 // CTA-Text
 const ctaHeader = document.querySelector(".cta-text h1");
-ctaHeader.textContent = siteContent["cta"]["h1"];
+const splitHeader = siteContent["cta"]["h1"].split(" ");
+const [strDOM, strIS, strAWESOME] = splitHeader;
+
+const tn1 = document.createTextNode(strDOM);
+const tn2 = document.createTextNode(strIS);
+const tn3 = document.createTextNode(strAWESOME);
+const br1 = document.createElement("br");
+const br2 = document.createElement("br");
+
+ctaHeader.appendChild(tn1);
+ctaHeader.appendChild(br1);
+ctaHeader.appendChild(tn2);
+ctaHeader.appendChild(br2);
+ctaHeader.appendChild(tn3);
 
 // CTA-Button
  const ctaButton = document.querySelector(".cta-text button");
@@ -106,7 +119,26 @@ vision.children[1].textContent = siteContent["main-content"]["vision-content"];
 const contactSection = document.querySelector(".contact");
 const [contact, address, phone, email] = contactSection.children;
 
-contact.textContent = siteContent["contact"]["contact-h4"]
-address.textContent = siteContent["contact"]["address"]
-phone.textContent = siteContent["contact"]["phone"]
-email.textContent = siteContent["contact"]["email"]
+const addrText1 = siteContent["contact"]["address"].substring(0, 18);
+const addrText2 = siteContent["contact"]["address"].substring(19);
+
+const addrTextNode1 = document.createTextNode(addrText1);
+const addrTextNode2 = document.createTextNode(addrText2);
+
+const addrBreak = document.createElement("br");
+
+
+
+contact.textContent = siteContent["contact"]["contact-h4"];
+address.appendChild(addrTextNode1);
+address.appendChild(addrBreak);
+address.appendChild(addrTextNode2);
+phone.textContent = siteContent["contact"]["phone"];
+email.textContent = siteContent["contact"]["email"];
+
+// ===========================
+// Footer
+// ===========================
+
+const footer = document.querySelector("footer p");
+footer.textContent = siteContent["footer"]["copyright"];
